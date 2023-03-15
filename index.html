@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swinging Cursor</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      overflow: hidden;
+      cursor: none;
+    }
+
+    #cursor {
+      position: absolute;
+      width: 24px;
+      height: 36px;
+      pointer-events: none;
+      background-image: url('cursor.svg');
+      background-size: cover;
+      z-index: 1000;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 40px 20px;
+      background-color: #4caf50;
+      color: transparent;
+      user-select: none;
+      border: none;
+      border-radius: 5px;
+      cursor: none;
+      margin: 20px;
+      border-radius: 0;
+    }
+
+    button.hover {
+      background-color: #074a18ff;
+    }
+
+    #seesaw {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      transform-origin: center center;
+      transition: transform 0.3s;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 50px;
+      transform: translate(-50%);
+      display: flex;
+      justify-content: space-around;
+      transform-origin: center center;
+      transition: transform 0.3s;
+    }
+
+    .button-container:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    #button1 {
+      background-color: rgb(0, 255, 13);
+    }
+
+    #button2 {
+      background-color: rgb(0, 255, 13);
+    }
+
+    #button3 {
+      background-color: rgb(0, 255, 13);
+    }
+
+    #button4 {
+      background-color: rgb(0, 255, 13);
+    }
+
+
+    #wind-indicator {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      transform: translateX(-50%);
+      transform-origin: center center;
+    }
+  </style>
+</head>
+<body>
+    <div id="cursor"></div>
+    <svg id="wind-indicator" viewBox="0 0 100 100">
+      <polygon points="50,0 90,80 50,40 10,80" fill="#000" />
+      <rect x="47" y="40" width="6" height="60" fill="#000" />
+    </svg>
+    <div id="seesaw"></div>
+    <div class="button-container" id="button-container">
+      <button id="button1">Button 1</button>
+      <button id="button2">Button 2</button>
+      <button id="button3">Button 3</button>
+      <button id="button4">Button 4</button>
+    </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+  <script src="swinging-cursor.js"></script>
+</body>
+</html>
